@@ -1,8 +1,8 @@
 (function () {
-	var app = angular.module('projectRtc', [],
+	var app = angular.module('churchnow', [],
 		function ($locationProvider) { $locationProvider.html5Mode(true); }
 	);
-	var client = new PeerManager();
+	var client = new PeerManager();``
 	var mediaConfig = {
 		audio: true,
 		video: {

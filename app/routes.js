@@ -1,16 +1,13 @@
-module.exports = function(app, streams) {
-
-  // GET home 
-  var index = function(req, res) {
-    res.render('index', { 
-      title: 'Project RTC', 
-      header: 'WebRTC live streaming',
-      username: 'Username',
-      share: 'Share this link',
-      footer: 'pierre@chabardes.net',
-      id: req.params.id
-    });
-  };
+module.exports = function(app, streams) { 
+  const locals = req => ({ 
+    title: 'Project RTC', 
+    header: 'WebRTC live streaming',
+    username: 'Username',
+    share: 'Share this link',
+    footer: 'bernardojengwa@gmail.com',
+    id: req.params.id
+  });
+  
 
   // GET streams as JSON
   var displayStreams = function(req, res) {
@@ -22,6 +19,10 @@ module.exports = function(app, streams) {
   };
 
   app.get('/streams.json', displayStreams);
-  app.get('/', index);
-  app.get('/:id', index);
+  app.get('/', function(req, res) {
+    res.render('pages/stream.html', locals(req));
+  });
+  app.get('/:id', function(req, res) {
+    res.render('pages/subscribers.html', locals(req));
+  });
 }

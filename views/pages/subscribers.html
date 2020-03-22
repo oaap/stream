@@ -1,0 +1,67 @@
+{% extends 'base.html' %}{% extends 'base.html' %}
+
+
+{% block page %}
+    
+         <div class="container-fluid pb-0" ng-controller="RemoteStreamsController as rtc">
+            <div class="video-block-right-list section-padding">
+               <div class="row mb-4">
+                  <div class="col-md-8">
+                     <div class="single-video" style="height: 80vh;">
+                        <div id="remoteVideosContainer" style="height: 100%; width: 100%"></div>
+                     </div>
+                  </div>
+                  <div class="col-md-4" style="height: 80vh;">
+                  </div>
+               </div>
+            </div>
+            <div class="video-block section-padding">
+               <div class="row">
+                  <div class="col-md-8">
+                     <div class="single-video-author mb-3" ng-repeat="stream in rtc.remoteStreams" ng-class="{'selected' : stream.isPlaying}">
+                        <div class="float-right">
+                           <button class="btn btn-danger" type="button" ng-click="rtc.view(stream)">Join Stream</button>
+                           &nbsp;&nbsp;
+                           <button class="btn btn-danger" type="button" ng-click="rtc.loadData()">Refresh</button>
+                           &nbsp;&nbsp;
+                           <button class="btn btn-danger" type="button" ng-click="rtc.call(stream)">Refresh</button>
+                        </div>
+                        <p>
+                        <a href="#"><strong>{{stream.name}}</strong></a> 
+                           <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span>
+                        </p>
+                     </div>
+                     <div class="single-video-left">
+                        <div class="accordion card mb-3" id="accordionExample">
+                           <div class="box">
+                              <div class="single-video-title">
+                                 <h2><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Contrary to popular belief, Lorem Ipsum (2019) is not. <small>more...</small></a></h2>
+                                 <p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 views</p>
+                              </div>
+                         
+                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                               <div class="card-body single-video-info-content">
+                                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                               </div>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="single-video-right">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div class="adblock">
+                                 <div class="img">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+{% endblock page %}
+    

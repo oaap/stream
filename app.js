@@ -8,17 +8,27 @@ var express = require('express')
 var favicon = require('serve-favicon')
 ,	logger = require('morgan')
 ,	methodOverride = require('method-override')
-, expressNunjucks = require('express-nunjucks')
+, nunjucks = require('nunjucks')
 ,	bodyParser = require('body-parser')
 ,	errorHandler = require('errorhandler');
 
-const isDev = app.get('env') === 'development';
 var app = express();
+const isDev = app.get('env') === 'development';
 
 // all environments
 app.set('port', process.env.PORT || 8080);
-app.set('views', path.join(__dirname, 'views'));
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+nunjucks.configure(path.join(__dirname, 'views'), {
+    autoescape: true,
+    express: app,
+    watch: isDev,
+    noCache: isDev,
+    tags: {
+      variableStart: '<=',
+      variableEnd: '=>',
+    }
+});
+
+app.use(favicon(__dirname + '/public/images/favicon.png'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,10 +40,11 @@ if (isDev) {
   app.use(errorHandler());
 }
 
-const njk = expressNunjucks(app, {
-  watch: isDev,
-  noCache: isDev
-});
+// const nunjucks = expressNunjucks(app, {
+//   watch: isDev,
+//   noCache: isDev
+// });
+
 
 // routing
 require('./app/routes.js')(app, streams);

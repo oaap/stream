@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="churchnow">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="Free streaming service for churches and events">
+   <meta name="author" content="Bernard Ojengwa">
+   <title>Livestream - Free streaming service for your events and churches...</title>
+   <base href="/">
+   <!-- Bootstrap core CSS-->
+   <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Custom fonts for this template-->
+   <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+   <!-- Custom styles for this template-->
+   <link href="/assets/stylesheets/style.css" rel="stylesheet">
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/adapter.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/rtcClient.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+</head>
+
+<body id="page-top">
+   <nav class="navbar navbar-expand navbar-light navbar-lg bg-white static-top streamer-nav sticky-top">
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="navbar-brand mr-1" href="/"><img class="img-fluid" style="max-height: 50px" alt="" src="/assets/images/logo.png"></a>
+      <!-- Navbar Search -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 streamer-navbar-search">
+      </form>
+      <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0 streamer-right-navbar">
+         <li class="nav-item mx-1">
+            <a class="nav-link" href="#">
+               <i class="fas fa-podcast fa-fw"></i>
+               Start Streaming
+            </a>
+         </li>
+         <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-bell fa-fw"></i>
+               <span class="badge badge-danger">0</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right hide" aria-labelledby="alertsDropdown">
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#">No unread notifications</a>
+            </div>
+         </li>
+         <li class="nav-item dropdown no-arrow streamer-right-navbar-user">
+            <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <img alt="Avatar" src="/assets/images/user.png">
+               Welcome
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+               <a class="dropdown-item" href="#"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
+               <div class="dropdown-divider"></div>
+            </div>
+         </li>
+      </ul>
+   </nav>
+   <div id="wrapper">
+      <div id="content-wrapper">
+         
+         {% block page %}
+            
+         {% endblock page %}
+            
+         <!-- /.container-fluid -->
+         <!-- Sticky Footer -->
+         <footer class="sticky-footer">
+            <div class="container-fluid">
+               <div class="row no-gutters">
+                  <div class="col-lg-6 col-sm-6">
+                     <p class="mt-1 mb-0">&copy; Copyright 2020 <strong class="text-dark">Praise!</strong>. All Rights
+                        Reserved<br>
+                        <small class="mt-0 mb-0 text-right">Made with <i class="fas fa-heart text-danger"></i> by <a
+                              class="text-primary" target="_blank" href="https://finch.work/">Finch</a>
+                        </small>
+                     </p>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 text-right">
+                     <div class="app">
+                        <a href="#"><img alt="" src="/assets/images/google.png"></a>
+                        <a href="#"><img alt="" src="/assets/images/apple.png"></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <!-- /.content-wrapper -->
+   </div>
+   <!-- /#wrapper -->
+   <!-- Scroll to Top Button-->
+   <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+   </a>
+   <!-- Bootstrap core JavaScript-->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Core plugin JavaScript-->
+   <script src="/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/app.js"></script>
+   <!-- UI scripts for all pages-->
+   <script src="/assets/javascripts/ui.js"></script>
+</body>
+
+</html>
